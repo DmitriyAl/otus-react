@@ -1,0 +1,19 @@
+{
+  "name": "otus_react_2021_04",
+  "version": "1.0.0",
+  "description": "Otus react course",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DmitriyAl/otus-react.git"
+  },
+  "author": "Dmitriy Albot",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DmitriyAl/otus-react/issues"
+  },
+  "homepage": "https://github.com/DmitriyAl/otus-react#readme"
+}
