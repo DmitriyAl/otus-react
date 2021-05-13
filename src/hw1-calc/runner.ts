@@ -1,19 +1,34 @@
 import { parser } from "./parser";
+import {
+  isBracketsExist,
+  getExpression,
+  replaceByResult,
+  isValid,
+} from "./bracketsParser";
 
 import { firstPrioritiesCalc, secondPrioritiesCalc } from "./engine";
 
 export const runner = (line: string): number => {
-  const stack = parser(line);
-
-  if (stack === null) {
+  if (!isValid(line)) {
     throw new TypeError("Unexpected string");
   }
+  do {
+    const expression = getExpression(line);
+    const stack = parser(expression);
 
-  const firstPrioritiesRes = firstPrioritiesCalc(stack);
+    if (stack === null) {
+      throw new TypeError("Unexpected string");
+    }
 
-  if (firstPrioritiesRes.length === 1) {
-    return Number(firstPrioritiesRes[0]);
-  }
+    const firstPrioritiesRes = firstPrioritiesCalc(stack);
 
-  return secondPrioritiesCalc(firstPrioritiesRes);
+    let result;
+    if (firstPrioritiesRes.length === 1) {
+      result = Number(firstPrioritiesRes[0]);
+    } else {
+      result = secondPrioritiesCalc(firstPrioritiesRes);
+    }
+    line = replaceByResult(line, result);
+  } while (isBracketsExist(line) || isNaN(Number(line)));
+  return Number(line);
 };
