@@ -7,8 +7,12 @@
     "build": "npx webpack --mode production",
     "calc": "npx ts-node src/hw1-calc",
     "lint": "npx eslint --ext .js,.jsx,.ts,.tsx --fix src/",
+    "loki:update": "npm run build-storybook && npx loki update --requireReference --reactUri file:./storybook-static",
+    "loki:approve": "npx loki approve",
+    "test:loki": "npm run build-storybook && npx loki --requireReference --reactUri file:./storybook-static",
+    "test": "npx jest",
     "storybook": "start-storybook -p 6006",
-    "test": "npx jest"
+    "build-storybook": "build-storybook"
   },
   "husky": {
     "hooks": {
@@ -31,13 +35,10 @@
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.9.0",
-    "@storybook/addon-actions": "^5.3.18",
-    "@storybook/addon-docs": "^5.3.18",
-    "@storybook/addon-knobs": "^5.3.18",
-    "@storybook/addon-links": "^5.3.18",
-    "@storybook/addon-storysource": "^5.3.18",
-    "@storybook/addons": "^5.3.18",
-    "@storybook/react": "^5.3.18",
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-links": "^6.2.9",
+    "@storybook/react": "^6.2.9",
     "@types/jest": "^25.1.4",
     "@types/react": "^16.9.33",
     "@types/react-dom": "^16.9.6",
@@ -67,14 +68,14 @@
   "loki": {
     "configurations": {
       "chrome.laptop": {
-        "target": "chrome.docker",
+        "target": "chrome.app",
         "width": 1920,
         "height": 1080,
         "deviceScaleFactor": 1,
         "mobile": false
       },
       "chrome.iphone7": {
-        "target": "chrome.docker",
+        "target": "chrome.app",
         "preset": "iPhone 7"
       }
     }
