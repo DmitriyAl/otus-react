@@ -4,16 +4,10 @@
   "description": "Otus react course",
   "main": "index.js",
   "scripts": {
-    "start": "npx webpack-dev-server --mode development --hot",
     "build": "npx webpack --mode production",
     "calc": "npx ts-node src/hw1-calc",
     "lint": "npx eslint --ext .js,.jsx,.ts,.tsx --fix src/",
-    "loki:update": "npm run build-storybook && npx loki update --requireReference --reactUri file:./storybook-static",
-    "loki:approve": "npx loki approve",
-    "test:loki": "npm run build-storybook && npx loki --requireReference --reactUri file:./storybook-static",
-    "test": "npx jest",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "test": "npx jest"
   },
   "husky": {
     "hooks": {
@@ -33,22 +27,9 @@
   "homepage": "https://github.com/DmitriyAl/otus-react#readme",
   "devDependencies": {
     "@babel/core": "^7.9.0",
-    "@babel/plugin-proposal-class-properties": "^7.13.0",
-    "@babel/plugin-transform-runtime": "^7.13.9",
     "@babel/preset-env": "^7.9.0",
-    "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.9.0",
-    "@storybook/addon-actions": "^6.2.9",
-    "@storybook/addon-essentials": "^6.2.9",
-    "@storybook/addon-links": "^6.2.9",
-    "@storybook/react": "^6.2.9",
-    "@testing-library/jest-dom": "^5.12.0",
-    "@testing-library/react": "^11.2.6",
-    "@testing-library/user-event": "^13.1.5",
-    "@types/faker": "^5.5.3",
     "@types/jest": "^25.1.4",
-    "@types/react": "^16.9.33",
-    "@types/react-dom": "^16.9.6",
     "@typescript-eslint/eslint-plugin": "^2.25.0",
     "@typescript-eslint/parser": "^2.25.0",
     "babel-jest": "^25.2.4",
@@ -56,35 +37,13 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.19.0",
     "html-webpack-plugin": "^4.0.3",
     "husky": "^4.2.3",
     "jest": "^25.2.4",
-    "loki": "^0.20.3",
     "prettier": "^2.0.2",
-    "react-docgen-typescript-loader": "^3.7.2",
     "typescript": "^3.8.3",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
-  },
-  "dependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
-  },
-  "loki": {
-    "configurations": {
-      "chrome.laptop": {
-        "target": "chrome.app",
-        "width": 1920,
-        "height": 1080,
-        "deviceScaleFactor": 1,
-        "mobile": false
-      },
-      "chrome.iphone7": {
-        "target": "chrome.app",
-        "preset": "iPhone 7"
-      }
-    }
   }
 }
