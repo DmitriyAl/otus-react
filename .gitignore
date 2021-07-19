@@ -4,3 +4,5 @@ node_modules
 dist
 .idea
 /package-lock.json
+.loki/current
+.loki/difference
